@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 const AddLanguage = ({ handleAddLanguage }) => {
   const initialState = '';
-  const [inputValue, setInputValue] = useState(initialState);
+  const [inputValue, setInputValue] = useState('initialState');
 
   const handleClick = () => {
     handleAddLanguage(inputValue);
-    setInputValue(initialState);
+    setInputValue('');
   };
 
   return (
