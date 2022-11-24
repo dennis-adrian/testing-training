@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import AddLanguage from './components/AddLanguage';
+import ShowLanguages from './components/ShowLanguages';
 
 function App() {
+  const [languages, setLanguages] = useState([]);
+
+  const handleAddLanguage = (language) => {
+    const newState = [...languages, language];
+    setLanguages(newState);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddLanguage handleAddLanguage={handleAddLanguage} />
+      <ShowLanguages languages={languages} />
     </div>
   );
 }
